@@ -47,6 +47,17 @@ citation_takers = [[],[0]]    ## Kimler kimden referans aldı?
 crawl_end_info  = []
 relationship_s  = []
 
+def initalize_data():
+    global citation_takers
+    global citation_givers
+    global siteNumerator
+    global crawl_end_info
+
+    citation_takers  = []
+    citation_givers  = []
+    siteNumerator    = {}
+    crawl_end_info   = []
+
 def calc_link_analysis(siteNum):
     global siteNumerator
     global citation_takers

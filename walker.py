@@ -1,11 +1,7 @@
 from flask import Flask, render_template, request
-from bs4 import BeautifulSoup
-from threading import Thread
+from crawler import *
 import requests
 import threading
-import web_crawler
-from web_crawler import start_crawler_thread
-from web_crawler import get_cit_info
 import time
 
 app = Flask(__name__)
@@ -21,6 +17,13 @@ def crawler_sync():
 
 @app.route('/')
 def index():
+    global crawl_started
+    global suggestions_list
+
+    crawl_started = False
+    suggestions_list = []
+    initalize_data()
+
     return render_template('walker.html')
 
 
