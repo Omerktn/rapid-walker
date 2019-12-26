@@ -1,0 +1,2909 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>RapidWalker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="RapidWalker_files/w3.css">
+</head><body style="background-color:#778899;">
+
+<div class="w3-container">
+  <h2 class="center">RapidWalker</h2>
+  <h5 class="center">A fast web crawler by Ö.Kurttekin</h5>
+
+  <div class="w3-panel w3-blue w3-card-4">
+
+
+    <form>
+      <table align="center">
+  <tbody><tr>
+    <th> <h2 class="center">Seed Topic</h2> </th>
+    <th> <h2 class="center">Time of Crawl</h2></th>
+  </tr>
+  <tr>
+    <td> <input type="text" id="search_form_input" value="cesur yeni dünya"> </td>
+    <td align="center"> <input class="timeForm" id="search-time" onkeyup="this.value=this.value.replace(/[^\d]/,'')" value="200"> </td>
+  </tr>
+</tbody></table>
+
+
+      <br>
+      <div class="loader" id="load-circle" style="display: block;"></div>
+      <br>
+       <input type="button" class="center" value="Refresh" style="text-align: center;" id="scan-btn" onclick="changeText()">
+      <br>
+
+      <div id="place_for_suggestions"><label id="value_lable">
+  <div style="border: 2px solid white;border-radius: 5px;border-width:thin; padding:5px">
+    
+        www.eksisozluk.com ---&gt; www.google.com<br>
+    
+        eksisozluk.com ---&gt; twitter.com<br>
+    
+        eksisozluk.com ---&gt; www.facebook.com<br>
+    
+        twitter.com ---&gt; status.twitter.com<br>
+    
+        twitter.com ---&gt; support.twitter.com<br>
+    
+        twitter.com ---&gt; t.co<br>
+    
+        www.facebook.com ---&gt; l.facebook.com<br>
+    
+        www.kitapyurdu.com ---&gt; kitapdergisi.com<br>
+    
+        www.kitapyurdu.com ---&gt; m.kitapyurdu.com<br>
+    
+        www.kitapyurdu.com ---&gt; instagram.com<br>
+    
+        kitapdergisi.com ---&gt; www.facebook.com<br>
+    
+        kitapdergisi.com ---&gt; www.pinterest.com<br>
+    
+        m.kitapyurdu.com ---&gt; www.kitapyurdu.com<br>
+    
+        www.dr.com.tr ---&gt; www.facebook.com<br>
+    
+        www.dr.com.tr ---&gt; twitter.com<br>
+    
+        www.dr.com.tr ---&gt; instagram.com<br>
+    
+        www.dr.com.tr ---&gt; www.dr.com.tr<br>
+    
+        en.wikipedia.org ---&gt; www.isfdb.org<br>
+    
+        en.wikipedia.org ---&gt; www.arbookfind.com<br>
+    
+        en.wikipedia.org ---&gt; www.randomhouse.com<br>
+    
+        en.wikipedia.org ---&gt; www.bbc.co.uk<br>
+    
+        en.wikipedia.org ---&gt; www.sanary.com<br>
+    
+        en.wikipedia.org ---&gt; www.orwelltoday.com<br>
+    
+        en.wikipedia.org ---&gt; www.playboy.com<br>
+    
+        en.wikipedia.org ---&gt; www.betweenthecovers.com<br>
+    
+        en.wikipedia.org ---&gt; www.ala.org<br>
+    
+        en.wikipedia.org ---&gt; classiclit.about.com<br>
+    
+        en.wikipedia.org ---&gt; www.pcc.edu<br>
+    
+        en.wikipedia.org ---&gt; forgottenactors.blogspot.ca<br>
+    
+        en.wikipedia.org ---&gt; www.openculture.com<br>
+    
+        en.wikipedia.org ---&gt; collider.com<br>
+    
+        en.wikipedia.org ---&gt; www.hollywoodreporter.com<br>
+    
+        en.wikipedia.org ---&gt; somaweb.org<br>
+    
+        en.wikipedia.org ---&gt; catalogo.bne.es<br>
+    
+        www.isfdb.org ---&gt; www.isfdb.org<br>
+    
+        www.isfdb.org ---&gt; creativecommons.org<br>
+    
+        www.isfdb.org ---&gt; en.wikipedia.org<br>
+    
+        www.isfdb.org ---&gt; www.mediawiki.org<br>
+    
+        www.isfdb.org ---&gt; www.fabforce.net<br>
+    
+        www.isfdb.org ---&gt; www.mysql.com<br>
+    
+        www.isfdb.org ---&gt; www.python.org<br>
+    
+        www.isfdb.org ---&gt; www.mozilla.org<br>
+    
+        www.isfdb.org ---&gt; www.vim.org<br>
+    
+        www.isfdb.org ---&gt; isfdb.blogspot.com<br>
+    
+        www.arbookfind.com ---&gt; www.renaissance.com<br>
+    
+        www.bbc.co.uk ---&gt; www.bbc.co.uk<br>
+    
+        www.sanary.com ---&gt; www.six-fours.com<br>
+    
+        www.sanary.com ---&gt; www.bandol.eu<br>
+    
+        www.sanary.com ---&gt; www.ollioules.eu<br>
+    
+        www.sanary.com ---&gt; www.atelier-sud-web.com<br>
+    
+        www.sanary.com ---&gt; www.sanary.com<br>
+    
+        www.sanary.com ---&gt; translate.google.com<br>
+    
+        www.sanary.com ---&gt; www.lydaxius.fr<br>
+    
+        www.sanary.com ---&gt; 2doc.net<br>
+    
+        www.orwelltoday.com ---&gt; www.orwelltoday.com<br>
+    
+        www.ala.org ---&gt; www.ala.org<br>
+    
+        www.ala.org ---&gt; ec.ala.org<br>
+    
+        www.ala.org ---&gt; cqrcengage.com<br>
+    
+        www.ala.org ---&gt; www.addthis.com<br>
+    
+        www.ala.org ---&gt; www.oif.ala.org<br>
+    
+        www.ala.org ---&gt; www.twitter.com<br>
+    
+        www.ala.org ---&gt; www.facebook.com<br>
+    
+        www.ala.org ---&gt; www.youtube.com<br>
+    
+        www.ala.org ---&gt; www.pinterest.com<br>
+    
+        www.ala.org ---&gt; connect.ala.org<br>
+    
+        www.ala.org ---&gt; hdl.handle.net<br>
+    
+        www.ala.org ---&gt; wikis.ala.org<br>
+    
+        www.ala.org ---&gt; dia.ala.org<br>
+    
+        www.ala.org ---&gt; games.ala.org<br>
+    
+        www.ala.org ---&gt; ala-apa.org<br>
+    
+        www.ala.org ---&gt; www.aboutads.info<br>
+    
+        www.ala.org ---&gt; ala.org<br>
+    
+        www.ala.org ---&gt; www.ilovelibraries.org<br>
+    
+        classiclit.about.com ---&gt; www.facebook.com<br>
+    
+        classiclit.about.com ---&gt; jobs.jobvite.com<br>
+    
+        forgottenactors.blogspot.ca ---&gt; forgottenactors.blogspot.com<br>
+    
+        forgottenactors.blogspot.ca ---&gt; 2.bp.blogspot.com<br>
+    
+        forgottenactors.blogspot.ca ---&gt; 1.bp.blogspot.com<br>
+    
+        forgottenactors.blogspot.ca ---&gt; forgottenactors.blogspot.co.uk<br>
+    
+        forgottenactors.blogspot.ca ---&gt; morethanyouneededtoknow.typepad.com<br>
+    
+        www.openculture.com ---&gt; www.openculture.com<br>
+    
+        www.openculture.com ---&gt; feeds.feedburner.com<br>
+    
+        www.openculture.com ---&gt; twitter.com<br>
+    
+        www.openculture.com ---&gt; www.facebook.com<br>
+    
+        www.openculture.com ---&gt; www.reddit.com<br>
+    
+        www.openculture.com ---&gt; digg.com<br>
+    
+        www.openculture.com ---&gt; www.stumbleupon.com<br>
+    
+        www.openculture.com ---&gt; vkontakte.ru<br>
+    
+        www.openculture.com ---&gt; www.printfriendly.com<br>
+    
+        www.openculture.com ---&gt; www.yummly.com<br>
+    
+        www.openculture.com ---&gt; cdn8.openculture.com<br>
+    
+        www.openculture.com ---&gt; www.digitaldeliftp.com<br>
+    
+        www.openculture.com ---&gt; www.jerrygoldsmithonline.com<br>
+    
+        www.openculture.com ---&gt; about.me<br>
+    
+        www.openculture.com ---&gt; bit.ly<br>
+    
+        www.openculture.com ---&gt; www.nobelprize.org<br>
+    
+        www.openculture.com ---&gt; affiliates.audiobooks.com<br>
+    
+        www.openculture.com ---&gt; www.bartleby.com<br>
+    
+        www.openculture.com ---&gt; calibre-ebook.com<br>
+    
+        www.openculture.com ---&gt; www.ck12.org<br>
+    
+        www.openculture.com ---&gt; www.epubbud.com<br>
+    
+        www.openculture.com ---&gt; en.childrenslibrary.org<br>
+    
+        www.openculture.com ---&gt; www.childrenslibrary.org<br>
+    
+        www.openculture.com ---&gt; librivox.org<br>
+    
+        www.openculture.com ---&gt; www.oercommons.org<br>
+    
+        www.openculture.com ---&gt; www.gutenberg.org<br>
+    
+        www.openculture.com ---&gt; is.gd<br>
+    
+        www.openculture.com ---&gt; president.harvard.edu<br>
+    
+        www.openculture.com ---&gt; www.physicscentral.com<br>
+    
+        www.openculture.com ---&gt; learner.org<br>
+    
+        www.openculture.com ---&gt; www.dw.de<br>
+    
+        www.openculture.com ---&gt; itunes.apple.com<br>
+    
+        www.openculture.com ---&gt; www.bbc.co.uk<br>
+    
+        www.openculture.com ---&gt; www.watchknowlearn.org<br>
+    
+        www.openculture.com ---&gt; www.khanacademy.org<br>
+    
+        www.openculture.com ---&gt; www.youtube.com<br>
+    
+        www.openculture.com ---&gt; cultr.me<br>
+    
+        www.openculture.com ---&gt; k12videos.mit.edu<br>
+    
+        www.openculture.com ---&gt; www.neok12.com<br>
+    
+        www.openculture.com ---&gt; thekidshouldseethis.com<br>
+    
+        www.openculture.com ---&gt; ed.ted.com<br>
+    
+        www.openculture.com ---&gt; www.artbabble.org<br>
+    
+        www.openculture.com ---&gt; www.sfmoma.org<br>
+    
+        www.openculture.com ---&gt; www.googleartproject.com<br>
+    
+        www.openculture.com ---&gt; smarthistory.khanacademy.org<br>
+    
+        www.openculture.com ---&gt; www.vatican.va<br>
+    
+        www.openculture.com ---&gt; kids.nationalgeographic.com<br>
+    
+        www.openculture.com ---&gt; www.worldatlas.com<br>
+    
+        www.openculture.com ---&gt; knoema.com<br>
+    
+        www.openculture.com ---&gt; www.50states.com<br>
+    
+        www.openculture.com ---&gt; constitutioncenter.org<br>
+    
+        www.openculture.com ---&gt; ancientweb.org<br>
+    
+        www.openculture.com ---&gt; bensguide.gpo.gov<br>
+    
+        www.openculture.com ---&gt; www.learner.org<br>
+    
+        www.openculture.com ---&gt; www.democracyweb.org<br>
+    
+        www.openculture.com ---&gt; www.gilderlehrman.org<br>
+    
+        www.openculture.com ---&gt; www.google.com<br>
+    
+        www.openculture.com ---&gt; larow2.carollarow.com<br>
+    
+        www.openculture.com ---&gt; www.wyzant.com<br>
+    
+        www.openculture.com ---&gt; historymatters.gmu.edu<br>
+    
+        www.openculture.com ---&gt; www.icivics.org<br>
+    
+        www.openculture.com ---&gt; www.livingroomcandidate.org<br>
+    
+        www.openculture.com ---&gt; www.teachinghistory.org<br>
+    
+        www.openculture.com ---&gt; www.fordham.edu<br>
+    
+        www.openculture.com ---&gt; www.whatsoproudlywehail.org<br>
+    
+        www.openculture.com ---&gt; amzn.to<br>
+    
+        www.openculture.com ---&gt; worldhistoryforusall.sdsu.edu<br>
+    
+        www.openculture.com ---&gt; dsl.richmond.edu<br>
+    
+        www.openculture.com ---&gt; www.folger.edu<br>
+    
+        www.openculture.com ---&gt; googlelittrips.com<br>
+    
+        www.openculture.com ---&gt; etc.usf.edu<br>
+    
+        www.openculture.com ---&gt; www.poetryfoundation.org<br>
+    
+        www.openculture.com ---&gt; shakespeare.mit.edu<br>
+    
+        www.openculture.com ---&gt; www.shmoop.com<br>
+    
+        www.openculture.com ---&gt; www.aaamath.com<br>
+    
+        www.openculture.com ---&gt; www.amazon.com<br>
+    
+        www.openculture.com ---&gt; www.ixl.com<br>
+    
+        www.openculture.com ---&gt; nrich.maths.org<br>
+    
+        www.openculture.com ---&gt; www.tutpup.com<br>
+    
+        www.openculture.com ---&gt; mathworld.wolfram.com<br>
+    
+        www.openculture.com ---&gt; www.allaboutjazz.com<br>
+    
+        www.openculture.com ---&gt; www.blockmrecords.org<br>
+    
+        www.openculture.com ---&gt; www.opengoldbergvariations.org<br>
+    
+        www.openculture.com ---&gt; creativecommons.org<br>
+    
+        www.openculture.com ---&gt; www.classicsforkids.com<br>
+    
+        www.openculture.com ---&gt; www.hickorytech.net<br>
+    
+        www.openculture.com ---&gt; research.culturalequity.org<br>
+    
+        www.openculture.com ---&gt; en.wikipedia.org<br>
+    
+        www.openculture.com ---&gt; www.teachingchildrenphilosophy.org<br>
+    
+        www.openculture.com ---&gt; www.philosophyforkids.com<br>
+    
+        www.openculture.com ---&gt; depts.washington.edu<br>
+    
+        www.openculture.com ---&gt; workshop.chromeexperiments.com<br>
+    
+        www.openculture.com ---&gt; coolcosmos.ipac.caltech.edu<br>
+    
+        www.openculture.com ---&gt; www.atlasoftheuniverse.com<br>
+    
+        www.openculture.com ---&gt; www.bioedonline.org<br>
+    
+        www.openculture.com ---&gt; bugscope.beckman.uiuc.edu<br>
+    
+        www.openculture.com ---&gt; builtbykids.com<br>
+    
+        www.openculture.com ---&gt; www.cellsalive.com<br>
+    
+        www.openculture.com ---&gt; chemistry.about.com<br>
+    
+        www.openculture.com ---&gt; www.haydenplanetarium.org<br>
+    
+        www.openculture.com ---&gt; www.ptable.com<br>
+    
+        www.openculture.com ---&gt; www.nasa.gov<br>
+    
+        www.openculture.com ---&gt; eyes.nasa.gov<br>
+    
+        www.openculture.com ---&gt; eol.jsc.nasa.gov<br>
+    
+        www.openculture.com ---&gt; www.flickr.com<br>
+    
+        www.openculture.com ---&gt; science.education.nih.gov<br>
+    
+        www.openculture.com ---&gt; www.paleoportal.org<br>
+    
+        www.openculture.com ---&gt; www.nsf.gov<br>
+    
+        www.openculture.com ---&gt; www.ucmp.berkeley.edu<br>
+    
+        www.openculture.com ---&gt; www.paleosoc.org<br>
+    
+        www.openculture.com ---&gt; www.vertpaleo.org<br>
+    
+        www.openculture.com ---&gt; www.usgs.gov<br>
+    
+        www.openculture.com ---&gt; www.compadre.org<br>
+    
+        www.openculture.com ---&gt; robotics.usc.edu<br>
+    
+        www.openculture.com ---&gt; richannel.org<br>
+    
+        www.openculture.com ---&gt; www.rigb.org<br>
+    
+        www.openculture.com ---&gt; www.sciencekids.co.nz<br>
+    
+        www.openculture.com ---&gt; www.sciencenewsforkids.org<br>
+    
+        www.openculture.com ---&gt; www.teachengineering.org<br>
+    
+        www.openculture.com ---&gt; www.amnh.org<br>
+    
+        www.openculture.com ---&gt; www.tryscience.org<br>
+    
+        www.openculture.com ---&gt; evolution.berkeley.edu<br>
+    
+        www.openculture.com ---&gt; www.natcenscied.org<br>
+    
+        www.openculture.com ---&gt; education.usgs.gov<br>
+    
+        www.openculture.com ---&gt; www.codecademy.com<br>
+    
+        www.openculture.com ---&gt; code.google.com<br>
+    
+        www.openculture.com ---&gt; read.gov<br>
+    
+        www.openculture.com ---&gt; www.babbel.com<br>
+    
+        www.openculture.com ---&gt; www.fotopedia.com<br>
+    
+        www.openculture.com ---&gt; eol.org<br>
+    
+        www.openculture.com ---&gt; www.projectnoah.org<br>
+    
+        www.openculture.com ---&gt; boingboing.net<br>
+    
+        www.openculture.com ---&gt; sat.collegeboard.org<br>
+    
+        www.openculture.com ---&gt; www.convert-me.com<br>
+    
+        www.openculture.com ---&gt; www.si.edu<br>
+    
+        www.openculture.com ---&gt; scienceworld.wolfram.com<br>
+    
+        www.openculture.com ---&gt; www.timetoast.com<br>
+    
+        www.openculture.com ---&gt; www.li4e.org<br>
+    
+        www.openculture.com ---&gt; www.unz.org<br>
+    
+        www.openculture.com ---&gt; www.elementary-teacher-resources.com<br>
+    
+        www.openculture.com ---&gt; www.classroomearth.org<br>
+    
+        www.openculture.com ---&gt; www.nwf.org<br>
+    
+        www.openculture.com ---&gt; www.commonsensemedia.org<br>
+    
+        www.openculture.com ---&gt; welcome.curriki.org<br>
+    
+        www.openculture.com ---&gt; www.edutopia.org<br>
+    
+        www.openculture.com ---&gt; edsitement.neh.gov<br>
+    
+        www.openculture.com ---&gt; www2.lhric.org<br>
+    
+        www.openculture.com ---&gt; www.pbs.org<br>
+    
+        www.openculture.com ---&gt; www.sharemylesson.com<br>
+    
+        www.openculture.com ---&gt; www.hulu.com<br>
+    
+        www.openculture.com ---&gt; www.snopes.com<br>
+    
+        www.openculture.com ---&gt; www.myoldradio.com<br>
+    
+        www.openculture.com ---&gt; click.linksynergy.com<br>
+    
+        www.openculture.com ---&gt; www.canvas.net<br>
+    
+        collider.com ---&gt; www.facebook.com<br>
+    
+        collider.com ---&gt; twitter.com<br>
+    
+        collider.com ---&gt; www.youtube.com<br>
+    
+        collider.com ---&gt; media.collider.com<br>
+    
+        collider.com ---&gt; www.twitter.com<br>
+    
+        somaweb.org ---&gt; www.pbs.org<br>
+    
+        somaweb.org ---&gt; www.npr.org<br>
+    
+        somaweb.org ---&gt; www.theatlantic.com<br>
+    
+        somaweb.org ---&gt; somaweb.org<br>
+    
+        catalogo.bne.es ---&gt; viaf.org<br>
+    
+        catalogo.bne.es ---&gt; datos.bne.es<br>
+    
+        ec.ala.org ---&gt; www.ala.org<br>
+    
+        www.atelier-sud-web.com ---&gt; atelier-sud-web.com<br>
+    
+        www.atelier-sud-web.com ---&gt; www.les-agitateurs.com<br>
+    
+        forgottenactors.blogspot.com ---&gt; forgottenactors.blogspot.com<br>
+    
+        forgottenactors.blogspot.com ---&gt; 3.bp.blogspot.com<br>
+    
+        forgottenactors.blogspot.com ---&gt; 4.bp.blogspot.com<br>
+    
+        forgottenactors.blogspot.com ---&gt; forgottenactors.blogspot.co.uk<br>
+    
+        forgottenactors.blogspot.com ---&gt; morethanyouneededtoknow.typepad.com<br>
+    
+        forgottenactors.blogspot.com ---&gt; 2.bp.blogspot.com<br>
+    
+        forgottenactors.blogspot.com ---&gt; 1.bp.blogspot.com<br>
+    
+        <br>
+    
+        !-- Time has expired. ----------------------!<br>
+    
+        !-&gt; 112 pages has crawled.<br>
+    
+        !-&gt; 255 relationship has found.<br>
+    
+        !-- Degree values: -------------------------!<br>
+    
+        <br>
+    
+        www.eksisozluk.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.google.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        eksisozluk.com's<br>
+    
+        Degree Centrality: 0.01
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        twitter.com's<br>
+    
+        Degree Centrality: 0.01
+<br>
+    
+        Degree Prestige  : 0.02
+<br>
+    
+        ---<br>
+    
+        www.facebook.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.03
+<br>
+    
+        ---<br>
+    
+        www.kitapyurdu.com's<br>
+    
+        Degree Centrality: 0.01
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        kitapdergisi.com's<br>
+    
+        Degree Centrality: 0.01
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        m.kitapyurdu.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        instagram.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        www.idefix.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.dr.com.tr's<br>
+    
+        Degree Centrality: 0.02
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        en.wikipedia.org's<br>
+    
+        Degree Centrality: 0.08
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        www.isfdb.org's<br>
+    
+        Degree Centrality: 0.04
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        www.arbookfind.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.randomhouse.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.bbc.co.uk's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        www.sanary.com's<br>
+    
+        Degree Centrality: 0.04
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        www.orwelltoday.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        www.playboy.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.betweenthecovers.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.ala.org's<br>
+    
+        Degree Centrality: 0.08
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        classiclit.about.com's<br>
+    
+        Degree Centrality: 0.01
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.pcc.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        forgottenactors.blogspot.ca's<br>
+    
+        Degree Centrality: 0.02
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.openculture.com's<br>
+    
+        Degree Centrality: 0.68
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        collider.com's<br>
+    
+        Degree Centrality: 0.02
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.hollywoodreporter.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        somaweb.org's<br>
+    
+        Degree Centrality: 0.02
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        catalogo.bne.es's<br>
+    
+        Degree Centrality: 0.01
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.renaissance.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        ec.ala.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        feeds.feedburner.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.reddit.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        digg.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.stumbleupon.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        vkontakte.ru's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.printfriendly.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.yummly.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        cdn8.openculture.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.digitaldeliftp.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.jerrygoldsmithonline.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        about.me's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        bit.ly's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.nobelprize.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        affiliates.audiobooks.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        status.twitter.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        support.twitter.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.youtube.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        media.collider.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.twitter.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        www.six-fours.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.bandol.eu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.ollioules.eu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.atelier-sud-web.com's<br>
+    
+        Degree Centrality: 0.01
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        translate.google.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.lydaxius.fr's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        cqrcengage.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.addthis.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.oif.ala.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.pinterest.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        viaf.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        datos.bne.es's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        l.facebook.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.pbs.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        www.npr.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.theatlantic.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        jobs.jobvite.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        forgottenactors.blogspot.com's<br>
+    
+        Degree Centrality: 0.03
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        2.bp.blogspot.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        1.bp.blogspot.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        forgottenactors.blogspot.co.uk's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        morethanyouneededtoknow.typepad.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        creativecommons.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.01
+<br>
+    
+        ---<br>
+    
+        atelier-sud-web.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.les-agitateurs.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.bartleby.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        calibre-ebook.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.ck12.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.epubbud.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        en.childrenslibrary.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.childrenslibrary.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        librivox.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.oercommons.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.gutenberg.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        is.gd's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        president.harvard.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.physicscentral.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        learner.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.dw.de's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        itunes.apple.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.watchknowlearn.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.khanacademy.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        cultr.me's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        k12videos.mit.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.neok12.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        thekidshouldseethis.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        ed.ted.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.artbabble.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.sfmoma.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.googleartproject.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        smarthistory.khanacademy.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.vatican.va's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        kids.nationalgeographic.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.worldatlas.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        knoema.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.50states.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        constitutioncenter.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        ancientweb.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        bensguide.gpo.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.learner.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.democracyweb.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.gilderlehrman.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        larow2.carollarow.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.wyzant.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        historymatters.gmu.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.icivics.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.livingroomcandidate.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.teachinghistory.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.fordham.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.whatsoproudlywehail.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        amzn.to's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        worldhistoryforusall.sdsu.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        dsl.richmond.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.folger.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        googlelittrips.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        etc.usf.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.poetryfoundation.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        shakespeare.mit.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.shmoop.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.aaamath.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.amazon.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.ixl.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        nrich.maths.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.tutpup.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        mathworld.wolfram.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.allaboutjazz.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.blockmrecords.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.opengoldbergvariations.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.classicsforkids.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.hickorytech.net's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        research.culturalequity.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.teachingchildrenphilosophy.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.philosophyforkids.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        depts.washington.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        workshop.chromeexperiments.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        coolcosmos.ipac.caltech.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.atlasoftheuniverse.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.bioedonline.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        bugscope.beckman.uiuc.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        builtbykids.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.cellsalive.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        chemistry.about.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.haydenplanetarium.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.ptable.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.nasa.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        eyes.nasa.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        eol.jsc.nasa.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.flickr.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        science.education.nih.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.paleoportal.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.nsf.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.ucmp.berkeley.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.paleosoc.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.vertpaleo.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.usgs.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.compadre.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        robotics.usc.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        richannel.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.rigb.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.sciencekids.co.nz's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.sciencenewsforkids.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.teachengineering.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.amnh.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.tryscience.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        evolution.berkeley.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.natcenscied.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        education.usgs.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.codecademy.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        code.google.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        read.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.babbel.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.fotopedia.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        eol.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.projectnoah.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        boingboing.net's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        sat.collegeboard.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.convert-me.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.si.edu's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        scienceworld.wolfram.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.timetoast.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.li4e.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.unz.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.elementary-teacher-resources.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.classroomearth.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.nwf.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.commonsensemedia.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        welcome.curriki.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.edutopia.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        edsitement.neh.gov's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www2.lhric.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.sharemylesson.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        connect.ala.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        hdl.handle.net's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        3.bp.blogspot.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        4.bp.blogspot.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        wikis.ala.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        dia.ala.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        games.ala.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        ala-apa.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        t.co's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        2doc.net's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.hulu.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.snopes.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.myoldradio.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        click.linksynergy.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.canvas.net's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.aboutads.info's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.mediawiki.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        ala.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.ilovelibraries.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.fabforce.net's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.mysql.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.python.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.mozilla.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        www.vim.org's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+        isfdb.blogspot.com's<br>
+    
+        Degree Centrality: 0.00
+<br>
+    
+        Degree Prestige  : 0.00
+<br>
+    
+        ---<br>
+    
+  </div>
+</label></div>
+      <script src="RapidWalker_files/jquery.js"></script>
+
+    </form>
+
+
+<br>
+
+    <script>
+      function changeText() {
+        document.getElementById("scan-btn").value = "Refresh";
+        document.getElementById("load-circle").style.display = "block";
+      }
+    </script>
+
+    <script>
+    $("#scan-btn").click(function(){
+        var text  = $("#search_form_input").val();
+        var tlimit = $("#search-time").val();
+
+        $.ajax({
+          url: "/suggestions",
+          type: "get",
+          data: {jsdata: text, tldata: tlimit},
+          success: function(response) {
+            $("#place_for_suggestions").html(response);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+            print("VARIABLE PASSING ERROR ON AJAX")
+          }
+        });
+    });
+    </script>
+
+</div>
+</div>
+
+
+
+
+<style>
+
+.loader {
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.center {
+ text-align: center;
+ font-family: "Trebuchet MS", Helvetica, sans-serif
+}
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+}
+input[type=button] {
+  display: block;
+  margin: 0 auto;
+}
+.timeForm {
+  width: 30%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 10px;
+}
+button {
+  margin:auto;
+  display:block;
+}
+</style>
+</body></html>
