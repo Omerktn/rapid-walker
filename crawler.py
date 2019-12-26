@@ -30,7 +30,6 @@ def crawl_once(url):
     try:
         site = download_website(url)
     except:
-        print("-",end="")
         return []
 
     # Extract links
@@ -131,7 +130,6 @@ def start_crawl(seed_term, timelimit):
 
         # Crawl
         new_pages = crawl_once(current_url)
-        print(len(new_pages))
         page_num += 1
 
         for longurl in new_pages:
@@ -174,9 +172,3 @@ def start_crawl(seed_term, timelimit):
 def start_crawler_thread(input, timelimit):
     crawlerThread = threading.Thread(target = start_crawl, args = (input, timelimit))
     crawlerThread.start()
-
-"""
-if __name__ == "__main__":
-    crawlerThread = Thread(target = start_crawl, args = ("ggc compiler", 120))
-    crawlerThread.start()
-"""
