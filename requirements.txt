@@ -25,7 +25,6 @@ diagnostic-analysis==1.9.3
 diagnostic-common-diagnostics==1.9.3
 diagnostic-updater==1.9.3
 distro-info===0.18ubuntu0.18.04.1
-Django==2.2.4
 dynamic-reconfigure==1.6.0
 Flask==1.1.1
 gencpp==0.6.2
@@ -67,7 +66,6 @@ oauth==1.0.1
 olefile==0.45.1
 parsel==1.5.2
 pexpect==4.2.1
-Pillow==5.1.0
 Protego==0.1.15
 protobuf==3.0.0
 psutil==5.4.2
@@ -75,7 +73,6 @@ pyasn1==0.4.8
 pyasn1-modules==0.2.7
 pycairo==1.16.2
 pycparser==2.19
-pycrypto==2.6.1
 pycups==1.9.73
 PyDispatcher==2.0.5
 pygame==1.9.6
@@ -93,8 +90,6 @@ python-qt-binding==0.3.6
 python-xapp==1.0.0
 python-xlib==0.20
 pytz==2019.2
-pyxdg==0.25
-PyYAML==3.12
 qt-dotgraph==0.3.16
 qt-gui==0.3.16
 qt-gui-cpp==0.3.16
